@@ -80,3 +80,61 @@ header h3 span {
   width: 50px;
 }
 /* ^ HEADER ^ */
+
+/* v MAIN v */
+.main main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .product {
+  background-color: var(--cor-purple-light);
+  border: 5px solid black;
+  border-radius: 15px;
+  height: 250px;
+  width: 150px;
+  color: var(--cor-de-fundo);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .product-container-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 0 0 0;
+}
+
+main .product-img {
+  width: 85%;
+  object-fit: contain;
+  border: 5px solid black;
+  border-radius: 15px;
+}
+main .product-container-info {
+  width: 100%;
+}
+
+main .product-container-info h4 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 45ch;
+}
+
+main .product-container-info p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.8rem;
+}
+
+main .product h4 {
+  margin: 5%;
+}
+/* ^ MAIN ^ */
