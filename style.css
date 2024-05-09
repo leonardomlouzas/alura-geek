@@ -84,11 +84,23 @@ header h3 span {
 /* v MAIN v */
 .main main {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
 }
 
+/* MAIN PRODUCTS */
+main .main-products-title {
+  text-align: center;
+}
+
+main .main-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 main .product {
   background-color: var(--cor-purple-light);
   border: 5px solid black;
@@ -136,5 +148,43 @@ main .product-container-info p {
 
 main .product h4 {
   margin: 5%;
+}
+
+/* MAIN ADD */
+main .main-add {
+  text-align: center;
+}
+main .main-add form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+main .main-add form input {
+  border: 3px solid var(--cor-blue-dark);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+main .main-add form input::placeholder {
+  font-family: "VT323", monospace;
+  font-size: 1.2rem;
+  color: var(--cor-blue-dark);
+}
+
+main .main-add form button {
+  color: var(--cor-de-fundo);
+  border: 3px solid var(--cor-blue-dark);
+  border-radius: 10px;
+  padding: 0.5rem;
+  background-color: var(--cor-blue-dark);
+}
+
+main .main-add form button:hover {
+  color: var(--cor-blue-dark);
+  background-color: var(--cor-de-fundo);
+  cursor: pointer;
 }
 /* ^ MAIN ^ */

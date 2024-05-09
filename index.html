@@ -27,6 +27,7 @@
     <section class="main">
         <main>
             <section class="main-products">
+                <h3 class="main-products-title">MEUS PRODUTOS:</h3>
                 <div class="product">
                     <div class="product-container-img">
                         <img src="assets/gameboycolorclassic.png" alt="Imagem do produto" class="product-img">
@@ -38,6 +39,13 @@
                 </div>
             </section>
             <section class="main-add">
+                <h3 class="main-add-title">ADICIONAR PRODUTO:</h3>
+                <form class="main-add-form">
+                    <input type="text" id="product-name" placeholder="Nome..." />
+                    <input type="number" min="0" step="0.01" id="product-price" placeholder="Preço..." />
+                    <input type="text" id="product-img" placeholder="Imagem..." />
+                    <button type="submit">Adicionar</button>
+                </form>
             </section>
         </main>
     </section>
