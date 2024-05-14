@@ -98,11 +98,17 @@ main .main-products-title {
 
 main .main-products {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+
+main .main-products-title {
+  width: 100%;
+}
+
 main .product {
   background-color: var(--cor-purple-light);
   border: 5px solid black;
@@ -228,3 +234,21 @@ footer h3 span {
   color: var(--cor-pink);
 }
 /* ^ FOOTER ^ */
+
+/* v MEDIA QUERIES v */
+@media (min-width: 768px) {
+  .main main {
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 1vh 10vh;
+    max-width: 1000px;
+    justify-content: center;
+  }
+
+  .main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
