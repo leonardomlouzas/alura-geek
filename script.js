@@ -1,28 +1,74 @@
 const noProducts = document.querySelector("#no-products");
 const sectionProducts = document.querySelector(".main-products");
-const url = "http://localhost:3000/products"
+const form = document.querySelector(".main-add-form");
 const products = []
 
-fetch(url).then(response => response.json())
-    .then(data => products.push(...data))
-    .catch(error => console.log(error))
-    .finally(() => {
-        if (products.length != 0) {
-            noProducts.style.display = "none";
+const url = "http://localhost:3000/products"
 
-            products.forEach(product => {
-                const newProduct = document.createElement("div");
-                newProduct.classList.add("product");
-                newProduct.innerHTML = `
-                <div class="product-container-img">
-                    <img src="${product.image}" alt="Imagem do produto" class="product-img">
-                </div>
-                <div class="product-container-info">
-                    <h4>${product.name}</h4>
-                    <p>$ ${product.price}<span><img src="assets/icon_trash.svg" alt="remover produto"></span></p>
-                </div>
-                `
-                sectionProducts.appendChild(newProduct);
-            });
-        }
-    })
+const fetchProducts = async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+}
+
+async function createProduct(product) {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify({
+            name: product.name,
+            price: product.price,
+            image: product.image
+        })
+    });
+    if (!response.ok) {
+        throw new Error("Error creating product");
+    }
+
+    const data = await response.json();
+    return data;
+}
+
+async function displayProducts() {
+    const products = await fetchProducts();
+
+    if (products.length > 0) {
+        noProducts.style.display = "none";
+
+        products.forEach(product => {
+            const newProduct = document.createElement("div");
+            newProduct.classList.add("product");
+            newProduct.innerHTML = `
+            <div class="product-container-img">
+                <img src="${product.image}" alt="Imagem do produto" class="product-img">
+            </div>
+            <div class="product-container-info">
+                <h4>${product.name}</h4>
+                <p>$ ${product.price}<span><img src="assets/icon_trash.svg" alt="remover produto"></span></p>
+            </div>
+            `
+            sectionProducts.appendChild(newProduct);
+        });
+
+    }
+}
+
+async function addProduct(evento) {
+    evento.preventDefault();
+
+    const name = document.querySelector("#product-name").value;
+    const price = document.querySelector("#product-price").value;
+    const image = document.querySelector("#product-img").value;
+
+    try {
+        await createProduct({ name, price, image });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+displayProducts();
+form.addEventListener("submit", evento => addProduct(evento));
+console.log("loaded");
