@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Game Boy Classic",
+      "price": 69.69,
+      "image": "https://github.com/leonardomlouzas/alura-geek/blob/main/assets/gameboycolorclassic.png?raw=true"
+    },
+    {
+      "id": 2,
+      "name": "Game Cube",
+      "price": 79.99,
+      "image": "https://github.com/leonardomlouzas/alura-geek/blob/main/assets/gamecube.png?raw=true"
+    },
+    {
+      "id": 3,
+      "name": "PSP",
+      "price": 99.99,
+      "image": "https://github.com/leonardomlouzas/alura-geek/blob/main/assets/psp.png?raw=true"
+    }
+  ]
+}
