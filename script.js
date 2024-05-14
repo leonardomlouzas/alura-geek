@@ -46,12 +46,17 @@ async function displayProducts() {
             </div>
             <div class="product-container-info">
                 <h4>${product.name}</h4>
-                <p>$ ${product.price}<span><img src="assets/icon_trash.svg" alt="remover produto"></span></p>
+                <p>$ ${product.price}<span class="product-delete"><img src="assets/icon_trash.svg" alt="remover produto"></span></p>
             </div>
             `
+            newProduct.setAttribute("id", product.id);
             sectionProducts.appendChild(newProduct);
         });
 
+        const deleteButtons = document.querySelectorAll(".product-delete");
+        deleteButtons.forEach(button => button.addEventListener("click", deleteProduct));
+    } else {
+        noProducts.style.display = "block";
     }
 }
 
@@ -64,6 +69,25 @@ async function addProduct(evento) {
 
     try {
         await createProduct({ name, price, image });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function deleteProduct(evento) {
+    const product = evento.target.closest(".product");
+    const productId = product.getAttribute("id");
+
+    try {
+        const response = await fetch(`${url}/${productId}`, {
+            method: "DELETE",
+        });
+
+        if (!response.ok) {
+            throw new Error("Error deleting product");
+        }
+
+        product.remove();
     } catch (error) {
         console.error(error);
     }

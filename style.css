@@ -158,6 +158,10 @@ main .product h4 {
   margin: 5%;
 }
 
+main .product-delete {
+  cursor: pointer;
+}
+
 /* MAIN ADD */
 main .main-add {
   text-align: center;
