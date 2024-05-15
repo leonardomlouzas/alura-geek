@@ -20,7 +20,7 @@ Deploy: https://alura-geek-dun.vercel.app/
 json-server --watch products.json
 ```
 
-2. Abra o `index.html` ou rode como servidor;
+2. Acesse o [site](https://alura-geek-dun.vercel.app/) ou abra o `index.html` ou rode como servidor;
 
 3. Pronto!
 
